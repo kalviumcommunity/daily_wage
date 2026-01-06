@@ -8,3 +8,4 @@ The Dashboard page uses Server-Side Rendering with dynamic = 'force-dynamic' to 
 
 The Breaking News page uses Incremental Static Regeneration with revalidate = 60. This allows headlines to refresh every minute in the background while serving cached content instantly, keeping news timely without sacrificing performance or increasing server load.
 
+Overall, this hybrid approach enables DailyEdge to deliver fast and fresh content while controlling infrastructure costs and maintaining a smooth user experience.
