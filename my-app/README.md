@@ -32,4 +32,16 @@ Each environment operates in isolation and uses its own configuration and infras
 
 ### Environment Configuration Files
 
-The project uses environment-specific configuration files:
+The project uses environment-specific configuration files
+
+
+
+
+
+Docker and CI/CD pipelines simplify deployments by making builds consistent and releases automated. Docker packages the application with all its dependencies, ensuring it runs the same way in every environment, while CI/CD pipelines automate testing, building, and deploying code after each commit.
+
+In QuickServe’s “Never-Ending Deployment Loop,” deployments fail due to missing environment variables, port conflicts, and old containers continuing to run in AWS. These issues occur because configuration is inconsistent, containers are not properly stopped or versioned, and the CI/CD pipeline lacks clear validation and cleanup steps.
+
+This can be fixed through proper containerization and pipeline design. Each service should run in a single, versioned Docker container, and old containers must be stopped before deploying new ones. Environment variables and secrets should be managed securely using AWS Parameter Store or Azure Key Vault and injected at runtime. The CI/CD pipeline should follow a trusted flow: code commit → test → build image → push to registry → deploy → health check, with rollback on failure.
+
+By combining Docker, CI/CD automation, and cloud-native security practices, QuickServe can achieve smooth, reliable, and secure deployments with consistent versions running in production.
